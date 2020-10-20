@@ -1,6 +1,8 @@
 <script lang="ts">
+    import ClosedCaptionAlt24 from "carbon-icons-svelte/lib/ClosedCaptionAlt24";
     import NextOutline32 from "carbon-icons-svelte/lib/NextOutline32";
     import Temperature24 from "carbon-icons-svelte/lib/Temperature24";
+    import Settings24 from "carbon-icons-svelte/lib/Settings24";
     import Smoke24 from "carbon-icons-svelte/lib/Smoke24";
     import Fog24 from "carbon-icons-svelte/lib/Fog24";
     import { fade } from "svelte/transition";
@@ -10,7 +12,9 @@
     const options = [
         {name:"Temperature",icon: Temperature24, url: "/temp"},
         {name:"Humidity",icon:Smoke24, url: "/humid"},
-        {name:"Pressure",icon:Fog24, url:"/press"}
+        {name:"Pressure",icon:Fog24, url:"/press"},
+        {name:"Configuration", icon:Settings24, url:"/config"},
+        {name:"Logs", icon:ClosedCaptionAlt24, url:"/logs"}
         ];
 
 const closeDrawer = () => {
@@ -58,6 +62,8 @@ const closeDrawer = () => {
         padding:0px;
         padding-bottom: 0.5em;
         color:white;
+        font-weight: 400;
+        font-size: 30px;
     }
     a{
         text-decoration: none;

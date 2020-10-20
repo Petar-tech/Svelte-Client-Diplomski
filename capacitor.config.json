@@ -1,0 +1,14 @@
+{
+  "appId": "com.web.diplomski",
+  "appName": "Diplomski",
+  "bundledWebRuntime": false,
+  "npmClient": "yarn",
+  "webDir": "public",
+  "linuxAndroidStudioPath":"/home/petar/Documents/android/android-studio/bin/studio.sh",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}

@@ -1,7 +1,9 @@
 <script lant="ts">
-    import { isOpen } from '../stores/store';
+    import { isOpen,title } from '../stores/store';
     import Menu32 from "carbon-icons-svelte/lib/Menu32";
 
+    let headline;
+    title.subscribe(val => headline = val);
     const openDrawer = () => {
       isOpen.set(true);
     }
@@ -12,7 +14,7 @@
     <Menu32/>
   </button> 
 
-  <h2>Application</h2>
+  <h2>{headline}</h2>
 </nav>
 
 <style>    

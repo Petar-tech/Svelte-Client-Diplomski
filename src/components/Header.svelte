@@ -9,6 +9,7 @@
 <style>
   header{
     overflow:hidden;
-    padding:0.5em;
+    padding:0px;
+    margin:0px;
   }
 </style>

@@ -9,3 +9,9 @@
         <Home32/>
     </FloatingActionBtn>
 </a>
+
+<style>
+    a{
+        float:right;
+    }
+</style>

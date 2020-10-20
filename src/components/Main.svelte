@@ -1,5 +1,5 @@
 <script lang="ts" >
-    import ConfigButton from './ConfigButton.svelte';
+    import ConfigButton from './buttons/ConfigButton.svelte';
   </script>
   
 <ConfigButton/>

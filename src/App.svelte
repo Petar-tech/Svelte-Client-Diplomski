@@ -1,21 +1,27 @@
 <script lang="ts">
   import page from "page";
+  import {title} from './stores/store';
   
   import Main from "./components/Main.svelte";
   import Form from "./components/Form.svelte";
   import Layout from "./components/Layout.svelte";
 
-  import HumidChart from "./components/HumidChart.svelte";
-  import PressChart from "./components/PressChart.svelte";
-  import TempChart from "./components/TempChart.svelte";
+  import HumidChart from "./components/charts/HumidChart.svelte";
+  import PressChart from "./components/charts/PressChart.svelte";
+  import TempChart from "./components/charts/TempChart.svelte";
 
   let comp = Main;
 
-  page("/", () => (comp = Main));
-  page("/config", () => (comp = Form));
-  page("/temp", () => (comp = TempChart));
-  page("/press", () => (comp = PressChart));
-  page("/humid", () => (comp = HumidChart));
+  function setState(route:any,headline:string){
+    comp = route;
+    title.set(headline);
+  }
+
+  page("/", () => setState(Main,"Home"));
+  page("/config", () => setState(Form,"Configuration"));
+  page("/temp", () => setState(TempChart,"Temperature"));
+  page("/press", () => setState(PressChart,"Pressure"));
+  page("/humid", () => setState(HumidChart,"Humidity"));
   page.start();
 </script>
 

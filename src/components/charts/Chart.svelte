@@ -1,5 +1,6 @@
 <script lang="ts">
     import {Chart} from 'chart.js';
+    import HomeButton from "../buttons/HomeButton.svelte";
     import {afterUpdate} from 'svelte';
 
     export let labels;
@@ -39,11 +40,12 @@
 </script>
 
 <canvas id="myChart" width="100" height="100" bind:this={ctx}></canvas>
+<HomeButton/>
 
 <style>
     canvas{
         margin:0px;
         padding:0px;
-        position:relative;
+        float: left;
     }
 </style>
