@@ -1,51 +1,56 @@
 <script lang="ts">
-    import {Chart} from 'chart.js';
-    import HomeButton from "../buttons/HomeButton.svelte";
-    import {afterUpdate} from 'svelte';
+  import { Chart } from "chart.js";
+  import HomeButton from "../buttons/HomeButton.svelte";
+  import { afterUpdate } from "svelte";
 
-    export let labels;
-    export let label;
-    export let data;
+  export let labels;
+  export let label;
+  export let data;
+  export let bgColor;
 
-    let ctx;
+  let ctx;
+  let myChart;
 
-    const createChart = () => {
-        let myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels,
-            datasets: [{
-                label,
-                data,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                ],
-            }]
+  const createChart = () => {
+    if (myChart) myChart.destroy();
+    myChart = new Chart(ctx, {
+      type: "line",
+      data: {
+        labels,
+        datasets: [
+          {
+            label,
+            data,
+            backgroundColor: [bgColor],
+          },
+        ],
+      },
+      options: {
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true,
+              },
+            },
+          ],
         },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
+      },
     });
 
     return myChart;
-}
-
-    afterUpdate(createChart);
+  };
+  afterUpdate(createChart);
 </script>
 
-<canvas id="myChart" width="100" height="100" bind:this={ctx}></canvas>
-<HomeButton/>
-
 <style>
-    canvas{
-        margin:0px;
-        padding:0px;
-        float: left;
-    }
+  canvas {
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    top: 1em;
+  }
 </style>
+
+<canvas id="myChart" width="100" height="100" bind:this={ctx} />
+<HomeButton />

@@ -1,7 +1,7 @@
 <script lang="ts">
   import page from "page";
-  import {title} from './stores/store';
-  
+  import { title } from "./stores/store";
+
   import Main from "./components/Main.svelte";
   import Form from "./components/Form.svelte";
   import Layout from "./components/Layout.svelte";
@@ -12,19 +12,19 @@
 
   let comp = Main;
 
-  function setState(route:any,headline:string){
+  function setState(route: any, headline: string) {
     comp = route;
     title.set(headline);
   }
 
-  page("/", () => setState(Main,"Home"));
-  page("/config", () => setState(Form,"Configuration"));
-  page("/temp", () => setState(TempChart,"Temperature"));
-  page("/press", () => setState(PressChart,"Pressure"));
-  page("/humid", () => setState(HumidChart,"Humidity"));
+  page("/", () => setState(Main, "Home"));
+  page("/config", () => setState(Form, "Configuration"));
+  page("/temp", () => setState(TempChart, "Temperature"));
+  page("/press", () => setState(PressChart, "Pressure"));
+  page("/humid", () => setState(HumidChart, "Humidity"));
   page.start();
 </script>
 
 <Layout>
-<svelte:component this={comp} />
+  <svelte:component this={comp} />
 </Layout>

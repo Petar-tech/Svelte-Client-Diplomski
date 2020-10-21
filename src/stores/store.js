@@ -20,7 +20,7 @@ export const optionsForm = [
   },
   {
     name: "Humidity",
-    unit: "gram per kilogram",
+    unit: "vapor % in the air",
     min: humid_min,
     max: humid_max,
     default_min: 0,
