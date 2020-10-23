@@ -39,7 +39,7 @@
         e.preventDefault();
         optionsForm.forEach(el =>{
             if(el.name === select){
-                slider_value.set(val);
+                slider_value.update((v) => {if(v.lenght !== 0) return [...v,{select , value:val,created: Date.now()}]});
                 el.max.set(max);
                 el.min.set(min);
             }

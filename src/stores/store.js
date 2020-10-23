@@ -1,6 +1,10 @@
 import { writable } from "svelte/store";
 
+export const url = "https://node-backend-diplomski.herokuapp.com/data/";
 export const isOpen = writable(false);
+export const temp = writable([]);
+export const press = writable([]);
+export const humid = writable([]);
 export const title = writable("Home");
 export const temp_min = writable(-100);
 export const temp_max = writable(100);
@@ -8,7 +12,7 @@ export const press_min = writable(0);
 export const press_max = writable(100000);
 export const humid_min = writable(0);
 export const humid_max = writable(100);
-export const slider_value = writable(0);
+export const slider_value = writable([]);
 export const optionsForm = [
   {
     name: "Temperature",

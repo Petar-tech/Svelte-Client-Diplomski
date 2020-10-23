@@ -6,7 +6,7 @@
   export let labels;
   export let label;
   export let data;
-  export let bgColor;
+  let bgColor = "rgba(255, 165, 0,0.4)";
 
   let ctx;
   let myChart;

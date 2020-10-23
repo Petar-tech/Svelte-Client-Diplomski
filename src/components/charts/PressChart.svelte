@@ -3,15 +3,15 @@
   import Max from "../Max.svelte";
   import Std from "../Std.svelte";
 
-  import { onMount } from "svelte";
+  import { onDestroy, onMount } from "svelte";
+  import { url,press } from "../../stores/store";
 
   let label = "Pressure [mbar]";
   let data = [];
   let labels = [];
-  let bgColor = "rgba(255, 201, 73, 0.2)";
 
   onMount(async () => {
-    const resp = await fetch("http://localhost:5000/data/temp");
+    const resp = await fetch(url + "press");
     const d = await resp.json();
 
     d.forEach((el) => {
@@ -19,8 +19,10 @@
       labels = [...labels, el.createdAt];
     });
   });
+
+  onDestroy(() => press.set({data,labels}))
 </script>
 
-<Chart {label} {data} {labels} {bgColor} />
+<Chart {label} {data} {labels} />
 <Max {data} unit={'mbar'} />
 <Std {data} unit={'mbar'} />

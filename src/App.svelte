@@ -10,6 +10,8 @@
   import PressChart from "./components/charts/PressChart.svelte";
   import TempChart from "./components/charts/TempChart.svelte";
 
+  import Log from "./components/Log.svelte";
+
   let comp = Main;
 
   function setState(route: any, headline: string) {
@@ -22,6 +24,7 @@
   page("/temp", () => setState(TempChart, "Temperature"));
   page("/press", () => setState(PressChart, "Pressure"));
   page("/humid", () => setState(HumidChart, "Humidity"));
+  page("/logs", () => setState(Log, "Logs"));
   page.start();
 </script>
 

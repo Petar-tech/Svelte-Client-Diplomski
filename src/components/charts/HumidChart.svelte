@@ -3,15 +3,14 @@
   import Max from "../Max.svelte";
   import Std from "../Std.svelte";
 
-  import { onMount } from "svelte";
+  import { onDestroy, onMount } from "svelte";
+  import { url,humid } from "../../stores/store";
 
   let label = "Humidity [g/kg]";
   let data = [];
   let labels = [];
-  let bgColor = "rgba(255, 201, 73, 0.2)";
-
   onMount(async () => {
-    const resp = await fetch("http://localhost:5000/data/temp");
+    const resp = await fetch(url + "humid");
     const d = await resp.json();
 
     d.forEach((el) => {
@@ -19,8 +18,10 @@
       labels = [...labels, el.createdAt];
     });
   });
+
+  onDestroy(() => humid.set({data,labels}))
 </script>
 
-<Chart {label} {data} {labels} {bgColor} />
+<Chart {label} {data} {labels} />
 <Max {data} unit={'g/kg'} />
 <Std {data} unit={'g/kg'} />
