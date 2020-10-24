@@ -12,7 +12,6 @@ export const pressure = writable([]);
 export const isOpen = writable(false);
 export const title = writable("Home");
 
-export const url = "https://node-backend-diplomski.herokuapp.com/";
 export const optionsDrawer = [
   { name: "Temperature", icon: Temperature24, url: "/temp" },
   { name: "Humidity", icon: Smoke24, url: "/humid" },
