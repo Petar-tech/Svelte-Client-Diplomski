@@ -1,6 +1,5 @@
 <script>
-    import HomeButton from './buttons/HomeButton.svelte';
+    import Form from './Form.svelte';
   </script>
   
-<HomeButton/>
-
+<Form/>

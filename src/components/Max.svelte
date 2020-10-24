@@ -11,7 +11,7 @@
     display: block;
     background-color: black;
     padding: 1em;
-    margin-top: 3em;
+    margin-top: 2em;
     color: white;
     letter-spacing: 1px;
     text-align: center;

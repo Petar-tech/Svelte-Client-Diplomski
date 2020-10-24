@@ -15,13 +15,12 @@
     padding: 1em;
     border-color: lightgrey;
     background-color: white;
-    margin-top: 1em;
-    margin-right: 1em;
     position: absolute;
-    right: 10px;
-    bottom: 25px;
+    bottom: 5px;
+    right:10px;
   }
 </style>
+
 
 <button on:click={close}>
   <slot />

@@ -1,4 +1,4 @@
-import { writable } from "svelte/store";
+import { writable, derived } from "svelte/store";
 import Temperature24 from "carbon-icons-svelte/lib/Temperature24";
 import Smoke24 from "carbon-icons-svelte/lib/Smoke24";
 import Fog24 from "carbon-icons-svelte/lib/Fog24";

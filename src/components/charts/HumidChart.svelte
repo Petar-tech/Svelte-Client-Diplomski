@@ -2,14 +2,13 @@
   import { onMount } from "svelte";
 
   import Chart from "./Chart.svelte";
-  import Max from "../Max.svelte";
-  import Std from "../Std.svelte";
 
   import { socket,humidity } from "../../stores/store";
 
   let label = "Humidity [g/kg]";
   let data = [];
   let labels = [];
+  let unit = 'g/kg'
 
   onMount(() => {
     socket.on("humid-data", data => {
@@ -26,6 +25,5 @@
 
 </script>
 
-<Chart {label} {data} {labels} />
-<Max {data} unit={'g/kg'} />
-<Std {data} unit={'g/kg'} />
+<Chart {label} {data} {labels} {unit}/>
+

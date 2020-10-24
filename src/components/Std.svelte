@@ -12,7 +12,7 @@
         (data.length - 1)
     );
 
-  $: std = () => parseFloat(getSD(data).toPrecision(5));
+  $: std = () => parseFloat(getSD(data).toPrecision(4));
 </script>
 
 <style>
@@ -22,6 +22,7 @@
     padding: 1em;
     color: white;
     margin-top: 1em;
+    box-sizing:content-box;
     letter-spacing: 1px;
     text-align: center;
   }
