@@ -1,26 +1,28 @@
 <script>
+  import { onMount } from "svelte";
+  
   import Chart from "./Chart.svelte";
   import Max from "../Max.svelte";
   import Std from "../Std.svelte";
 
-  import { onDestroy, onMount } from "svelte";
-  import { url,press } from "../../stores/store";
+  import { pressure, socket } from "../../stores/store";
 
   let label = "Pressure [mbar]";
   let data = [];
   let labels = [];
 
-  onMount(async () => {
-    const resp = await fetch(url + "press");
-    const d = await resp.json();
+  onMount(() => {
+    socket.on("press-data", data => {
+      pressure.update(old => [...old,data.fullDocument])
+    })
 
-    d.forEach((el) => {
-      data = [...data, el.value];
-      labels = [...labels, el.createdAt];
-    });
+    pressure.subscribe(next => {
+      next.forEach((el,i) => {
+        data[i] = el.value
+        labels[i] = el.createdAt
+      })
+    })
   });
-
-  onDestroy(() => press.set({data,labels}))
 </script>
 
 <Chart {label} {data} {labels} />

@@ -22,10 +22,11 @@
   h3 {
     display: block;
     text-align: center;
+    font-size: 40px;
   }
 </style>
 
-{#if max}
+{#if isFinite(max)}
   <p>The maximum value is: <strong>{max} {unit}</strong></p>
 {:else}
   <h3>Loading...</h3>

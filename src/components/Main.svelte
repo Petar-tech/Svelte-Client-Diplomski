@@ -1,6 +1,6 @@
-<script lang="ts" >
-    import ConfigButton from './buttons/ConfigButton.svelte';
+<script>
+    import HomeButton from './buttons/HomeButton.svelte';
   </script>
   
-<ConfigButton/>
+<HomeButton/>
 

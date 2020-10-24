@@ -1,41 +1,20 @@
 import { writable } from "svelte/store";
+import Temperature24 from "carbon-icons-svelte/lib/Temperature24";
+import Smoke24 from "carbon-icons-svelte/lib/Smoke24";
+import Fog24 from "carbon-icons-svelte/lib/Fog24";
+import io from "socket.io-client";
 
-export const url = "https://node-backend-diplomski.herokuapp.com/data/";
+export const socket = io("https://node-backend-diplomski.herokuapp.com/");
+
+export const temperature = writable([]);
+export const humidity = writable([]);
+export const pressure = writable([]);
 export const isOpen = writable(false);
-export const temp = writable([]);
-export const press = writable([]);
-export const humid = writable([]);
 export const title = writable("Home");
-export const temp_min = writable(-100);
-export const temp_max = writable(100);
-export const press_min = writable(0);
-export const press_max = writable(100000);
-export const humid_min = writable(0);
-export const humid_max = writable(100);
-export const slider_value = writable([]);
-export const optionsForm = [
-  {
-    name: "Temperature",
-    unit: "degrees Celsius",
-    min: temp_min,
-    max: temp_max,
-    default_min: -100,
-    default_max: 100,
-  },
-  {
-    name: "Humidity",
-    unit: "vapor % in the air",
-    min: humid_min,
-    max: humid_max,
-    default_min: 0,
-    default_max: 100,
-  },
-  {
-    name: "Pressure",
-    unit: "milibar",
-    min: press_min,
-    max: press_max,
-    default_min: 0,
-    default_max: 100000,
-  },
+
+export const url = "https://node-backend-diplomski.herokuapp.com/";
+export const optionsDrawer = [
+  { name: "Temperature", icon: Temperature24, url: "/temp" },
+  { name: "Humidity", icon: Smoke24, url: "/humid" },
+  { name: "Pressure", icon: Fog24, url: "/press" },
 ];

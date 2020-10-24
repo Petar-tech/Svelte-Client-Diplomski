@@ -1,4 +1,4 @@
-<script lant="ts">
+<script>
     import { isOpen,title } from '../stores/store';
     import Menu32 from "carbon-icons-svelte/lib/Menu32";
 

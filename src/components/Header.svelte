@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   import HeaderItems from './HeaderItems.svelte';
 </script>
 

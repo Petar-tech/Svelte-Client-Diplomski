@@ -12,7 +12,7 @@
         (data.length - 1)
     );
 
-  $: std = () => getSD(data).toPrecision(5);
+  $: std = () => parseFloat(getSD(data).toPrecision(5));
 </script>
 
 <style>
@@ -32,10 +32,11 @@
   h3 {
     display: block;
     text-align: center;
+    font-size: 40px;
   }
 </style>
 
-{#if std}
+{#if std() !== 0 && !isNaN(std()) }
   <p>The standard deviation value is: <strong>{std()} {unit}</strong></p>
 {:else}
   <h3>Loading...</h3>

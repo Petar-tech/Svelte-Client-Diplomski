@@ -19,7 +19,7 @@
     margin-right: 1em;
     position: absolute;
     right: 10px;
-    bottom: 50px;
+    bottom: 25px;
   }
 </style>
 

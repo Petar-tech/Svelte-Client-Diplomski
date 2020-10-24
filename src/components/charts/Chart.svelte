@@ -1,13 +1,14 @@
 <script lang="ts">
   import { Chart } from "chart.js";
-  import HomeButton from "../buttons/HomeButton.svelte";
   import { afterUpdate } from "svelte";
+
+  import HomeButton from "../buttons/HomeButton.svelte";
 
   export let labels;
   export let label;
   export let data;
-  let bgColor = "rgba(255, 165, 0,0.4)";
 
+  let bgColor = "rgba(255, 165, 0,0.4)";
   let ctx;
   let myChart;
 
@@ -40,6 +41,7 @@
 
     return myChart;
   };
+  
   afterUpdate(createChart);
 </script>
 
@@ -48,7 +50,7 @@
     margin: 0px;
     padding: 0px;
     position: relative;
-    top: 1em;
+    top: 0.5em;
   }
 </style>
 
