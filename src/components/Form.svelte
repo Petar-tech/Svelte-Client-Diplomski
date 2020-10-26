@@ -1,21 +1,26 @@
 <script>
-    import { optionsDrawer as units, temperature, pressure, humidity } from '../stores/store'
+    import { optionsDrawer as units, temperature, pressure, humidity,sortValue } from '../stores/store'
     import List from './List.svelte'
+    import { clear } from '../stores/fileSys'
 
     let unit;
     let sort;
-
-    let sortValue = ["Ascending","Descending"]
 
     const clearStore = () => {
         temperature.set([])
         humidity.set([])
         pressure.set([])
+        clear()
+    }
+
+    const resetOrder = () => {
+        sort = sortValue[0]
     }
 </script>
 
 <form id="main">
-    <select name="unit" id="unit" form="main" bind:value={unit}>
+    <!-- svelte-ignore a11y-no-onchange -->
+    <select name="unit" id="unit" form="main" bind:value={unit} on:change={resetOrder}>
         {#each units as unit}
             <option value={unit.name}>{unit.name}</option>
         {/each}
@@ -26,8 +31,9 @@
         {/each}
     </select>
 
-    <button id="clear" on:click|preventDefault={clearStore}>Clear</button>
+    <button id="clear" on:click={clearStore}>Clear</button>
 </form>
+
 <List {unit} {sort} />
 
 <style>
@@ -42,12 +48,14 @@
         background-position-y: 5px; 
         border-radius:15px;
         border: 1px solid #dfdfdf;
-        font-size:14px;
-        /* text-align-last:center; */
+        font-size:16px;
+        padding:0.5em;
     }
     form{
         display:flex;
-        margin-top:0.5em;
+        margin-top:1em;
+        margin-bottom: auto;
+        overflow-y:scroll;
     }
     button{
         flex:1;
@@ -55,7 +63,7 @@
         color:white;
         border-radius:15px;
         border:none;
-        font-size:14px;
+        font-size:16px;
     }
     option{
         background-color: white;

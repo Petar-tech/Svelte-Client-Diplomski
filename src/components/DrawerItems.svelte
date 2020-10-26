@@ -35,14 +35,18 @@ const closeDrawer = () => {
         display:flex;
         flex-direction: column;
         padding:1em;
+        
     }
     li{
+        margin-bottom: 0.5em;
         display:flex;
         align-items: center;
         justify-content: flex-start;
     }
     p{
-        margin-left:10px;
+        font-size: 20px;
+        letter-spacing: 1px;
+        font-weight: 400;
         color:white;
     }
     h2{
@@ -55,6 +59,8 @@ const closeDrawer = () => {
     }
     a{
         text-decoration: none;
+        margin-left:auto;
+        margin-right: auto;
     }
     button{
         background-color: black;
@@ -63,6 +69,7 @@ const closeDrawer = () => {
         position:relative;
         top:2px;
         padding-left: 10px;
+        margin-left:auto;
     }
     div{
         display:flex;

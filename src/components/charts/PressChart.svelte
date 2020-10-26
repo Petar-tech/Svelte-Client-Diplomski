@@ -1,9 +1,9 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   
   import Chart from "./Chart.svelte";
-
-  import { pressure, socket } from "../../stores/store";
+  import { setData } from "../../stores/fileSys";
+  import { pressure, socket, optionsDrawer as options } from "../../stores/store";
 
   let label = "Pressure [mbar]";
   let data = [];
@@ -22,6 +22,8 @@
       })
     })
   });
+
+  onDestroy(() => setData($pressure,options[2].name))
 </script>
 
 <Chart {label} {data} {labels} {unit}/>

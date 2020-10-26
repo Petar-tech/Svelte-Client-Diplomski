@@ -1,9 +1,9 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
 
   import Chart from "./Chart.svelte";
-
-  import { socket,humidity } from "../../stores/store";
+  import { setData } from "../../stores/fileSys";
+  import { socket,humidity, optionsDrawer as options } from "../../stores/store";
 
   let label = "Humidity [g/kg]";
   let data = [];
@@ -23,6 +23,7 @@
     })
   });
 
+  onDestroy(() => setData($humidity,options[1].name))
 </script>
 
 <Chart {label} {data} {labels} {unit}/>

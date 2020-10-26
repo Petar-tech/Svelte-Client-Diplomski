@@ -11,6 +11,7 @@ export const humidity = writable([]);
 export const pressure = writable([]);
 export const isOpen = writable(false);
 export const title = writable("Home");
+export const sortValue = ["Ascending", "Descending"];
 
 export const optionsDrawer = [
   { name: "Temperature", icon: Temperature24, url: "/temp" },

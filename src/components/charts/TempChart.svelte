@@ -1,9 +1,9 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
 
   import Chart from "./Chart.svelte";
-
-  import { temperature, socket } from "../../stores/store";
+  import { setData } from "../../stores/fileSys";
+  import { temperature, socket, optionsDrawer as options } from "../../stores/store";
 
   let label = "Temperature [Celsius]";
   let data = [];
@@ -22,6 +22,8 @@
       })
     })
   });
+
+  onDestroy(() => setData($temperature, options[0].name))
 </script>
 
 <Chart {label} {data} {labels} {unit}/>
