@@ -11,6 +11,11 @@ export const humidity = writable([]);
 export const pressure = writable([]);
 export const isOpen = writable(false);
 export const title = writable("Home");
+export let showSaved = writable(true);
+export const YesOrNo = [
+  { answer: "Yes", value: true },
+  { answer: "No", value: false },
+];
 export const sortValue = ["Ascending", "Descending"];
 
 export const optionsDrawer = [

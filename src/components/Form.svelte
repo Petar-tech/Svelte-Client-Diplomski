@@ -1,6 +1,7 @@
 <script>
     import { optionsDrawer as units, temperature, pressure, humidity,sortValue } from '../stores/store'
     import List from './List.svelte'
+    import Group from './Group.svelte'
     import { clear } from '../stores/fileSys'
 
     let unit;
@@ -34,6 +35,7 @@
     <button id="clear" on:click={clearStore}>Clear</button>
 </form>
 
+<Group/>
 <List {unit} {sort} />
 
 <style>

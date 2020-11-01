@@ -1,13 +1,15 @@
 <script>
-  import { onMount } from "svelte";
+  import { afterUpdate } from "svelte";
   import DrawerItems from "./DrawerItems.svelte";
   import { fade } from "svelte/transition";
 
   export let open;
   let ref;
+  let height
 
-  onMount(() => {
-    if (open) ref.style.width = "50%";
+  afterUpdate(() => {
+    if (open && height > 500 ) ref.style.width = "50%";
+    if (open && height < 500 ) ref.style.width = "30%";
   });
 
 </script>
@@ -25,7 +27,7 @@
   }
 </style>
 
-<nav bind:this={ref} transition:fade>
+<nav bind:this={ref} transition:fade bind:clientHeight={height}>
   <DrawerItems/>
 </nav>
 

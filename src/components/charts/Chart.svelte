@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Chart } from "chart.js";
-  import { afterUpdate, onDestroy } from "svelte";
+  import { afterUpdate } from "svelte";
 
   import HomeButton from "../buttons/HomeButton.svelte";
   import Max from "../Max.svelte";
@@ -11,7 +11,6 @@
   export let data;
   export let unit;
 
-  let isMounted = true;
 
   let bgColor = "rgba(255, 165, 0,0.4)";
   let ctx;
@@ -32,7 +31,7 @@
         ],
       },
       options: {
-        responsive:false,
+        responsive: window.innerHeight > 500 ? true:false,
         scales: {
           yAxes: [
             {
@@ -44,12 +43,10 @@
         },
       },
     });
-
     return myChart;
   };
   
   afterUpdate(createChart);
-  onDestroy(() => isMounted = false);
 </script>
 
 <style>
@@ -59,11 +56,21 @@
     position: relative;
     top: 0.5em;
   }
+  @media only screen and (max-height: 500px) {
+    .container{
+    display:grid;
+    box-sizing: border-box;
+    grid-template-columns: repeat(2,1fr);
+  }
+}
 </style>
 
-{#if isMounted}
-  <canvas id="myChart" width="350" height="350" bind:this={ctx} />
-  <Max {data} {unit} />
-  <Std {data} {unit} />
-  <HomeButton />
-{/if}
+  <div class="container">
+    <canvas id="myChart" width="350" height="350" bind:this={ctx} />
+    
+    <div>
+      <Max {data} {unit} />
+      <Std {data} {unit} />
+    </div>
+    <HomeButton />
+  </div>
