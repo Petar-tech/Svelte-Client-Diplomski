@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Chart } from "chart.js";
-  import { afterUpdate } from "svelte";
+  import { afterUpdate, onMount } from "svelte";
 
   import HomeButton from "../buttons/HomeButton.svelte";
   import Max from "../Max.svelte";
@@ -46,6 +46,7 @@
     return myChart;
   };
   
+  onMount(createChart)
   afterUpdate(createChart);
 </script>
 
